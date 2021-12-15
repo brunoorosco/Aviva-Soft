@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './styles.module.css'
+import Login from './../components/Auth'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
@@ -28,7 +29,10 @@ const Index = () => {
         console.log(evt)
     }
     return (
-        <div>
+        <div className='' >
+
+            <Login />
+{/*           
             <div className='pt-6'>
                 <div className="container mx-auto text-center">
                     <div className="flex justify-center">
@@ -54,7 +58,7 @@ const Index = () => {
                         {JSON.stringify(form, null, 2)}
                     </pre>
                 </div>
-            </div>
+            </div> */}
 
         </div>
     )

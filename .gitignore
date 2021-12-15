@@ -1,2 +1,5 @@
 node_modules
 .next/cache
+
+credenciais.json
+arquivo.json

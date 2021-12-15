@@ -1,0 +1,16 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.container {
+    background-image: url("./template.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nome {
+    color: darkslateblue;
+}
