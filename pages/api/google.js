@@ -3,8 +3,6 @@ const credenciais = require('../../credenciais.json')
 const arquivo = require('../../arquivo.json')
 
 export default async (req, res) => {
-
-    console.log(req.body)
     const doc = new GoogleSpreadsheet(arquivo.id)
 
     await doc.useServiceAccountAuth({
@@ -12,10 +10,11 @@ export default async (req, res) => {
         private_key: credenciais.private_key
     })
 
-    await doc.loadInfo() //carrega as infos da planilha
-    //console.log(doc.title)
 
-    const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+    await doc.loadInfo() //carrega as infos da planilha
+    console.log(doc.title)
+
+    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 
     const rows = await sheet.getRows({}); // can pass in { limit, offset }
 
@@ -26,7 +25,7 @@ export default async (req, res) => {
         }
     })
 
-    // console.log(batizando)
+    console.log(batizando)
     res.statusCode = 200;
     res.json(
         batizando
