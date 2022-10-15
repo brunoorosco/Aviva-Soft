@@ -1,16 +1,13 @@
 # Secretaria Virtual da Comunidade Avivamento em Cristo
 
-### Este projeto é uma migração de stack, no seu total funcionamento
+> #### Projeto em NextJs
 
-> #### Projeto Anterior
-###### PHP
 
-> #### Projeto Atual NextJs
-###### produção com sqlite
 ###### Tailwind
 
 > #### Telas
-###### Login
+###### Login![repository-open-graph-template](https://user-images.githubusercontent.com/40275604/196005968-4f375d11-9dfc-4380-877d-68acb837bfa4.png)
+
 ###### CRUD Membros
 ###### CRUD Igrejas
 ###### CRUD CEM's
