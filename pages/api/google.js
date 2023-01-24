@@ -1,11 +1,11 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 
 export default async(req, res) => {
-    const doc = new GoogleSpreadsheet(process.env.GOOOGLE_ID)
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_ID)
 
     await doc.useServiceAccountAuth({
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOOGLE_PRIVATE_KEY
+        private_key: process.env.GOOGLE_PRIVATE_KEY
     })
 
     await doc.loadInfo() //carrega as infos da planilha

@@ -1,21 +1,18 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet')
-const credenciais = require('../../../credenciais.json')
-const arquivo = require('../../../arquivo.json')
 const crypto = require('node:crypto')
 
 export default async(req, res) => {
     try {
         if (req.method === 'POST') {
-            const doc = new GoogleSpreadsheet(arquivo.id)
+            const doc = new GoogleSpreadsheet(process.env.GOOGLE_ID)
 
             await doc.useServiceAccountAuth({
-                client_email: credenciais.client_email,
-                private_key: credenciais.private_key
+                client_email: process.env.GOOGLE_CLIENT_EMAIL,
+                private_key: process.env.GOOGLE_PRIVATE_KEY
             })
-
             await doc.loadInfo() //carrega as infos da planilha
-
-            //select sheet escola-profeta-insc
+            console.log(req.body)
+                //select sheet escola-profeta-insc
             const sheet = await doc.sheetsByIndex[1]
             const response = await sheet.addRow({
                 name: req.body.name,
