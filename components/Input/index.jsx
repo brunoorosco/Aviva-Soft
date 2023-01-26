@@ -1,4 +1,5 @@
 import React from 'react'
+import * as S from './styles'
 
 const TextInput = ({
   maxLength,
@@ -6,22 +7,17 @@ const TextInput = ({
   onChange,
   value,
   type,
-  disabled = false,
   onBlur
 }) => {
   return (
-    <div className="flex justify-center">
-      <input
-        className="p-4 block shadow bg-gray-100 my-2 rounded w-full max-w-md m-2"
-        disabled={disabled}
-        maxLength={maxLength}
-        placeholder={placeholder}
-        onChange={(e) => onChange && onChange(e.target.value)}
-        value={value}
-        type={type}
-        onBlur={onBlur}
-      />
-    </div>
+    <S.Input
+      maxLength={maxLength}
+      placeholder={placeholder}
+      onChange={(e) => onChange && onChange(e.target.value)}
+      value={value}
+      type={type}
+      onBlur={onBlur}
+    />
   )
 }
 

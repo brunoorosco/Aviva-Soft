@@ -7,6 +7,7 @@ import logo from '../../public/logo.png'
 import TextInput from '../../components/Input'
 import { Masks } from '../../utils/masks'
 import Select from '../../components/Select'
+import * as S from './styles'
 
 const churchName = [
   { value: 'sede', label: 'Sede' },
@@ -56,74 +57,74 @@ const Index = () => {
   }
 
   return (
-    <div className="md: w-full bg-gray-200 max-h-screen h-screen">
-      <div className="justify-center text-center flex">
+    <S.Container>
+      <S.ContainerImage>
         <Image src={logo} width={200} />
-      </div>
-      <div className="text-center pt-3">
-        <p className="text-xl font-semibold">Inscrição escola de Profeta</p>
-        <p className="text-base">Valor R$ 50,00</p>
-        <p className="text-base">
-          Pix para pagamentos CNPJ: 23.077.271/0001-40
-        </p>
-      </div>
-      <form onSubmit={handleSubmit} id="form_escola">
-        <div className="pt-6">
-          <div className="container mx-auto text-center">
-            <TextInput
-              name="name"
-              placeholder="Nome Completo"
-              value={form.name}
-              onChange={(value) =>
-                setForm((currenty) => {
-                  return {
-                    ...currenty,
-                    name: Masks.clearName(value).toUpperCase()
-                  }
-                })
-              }
-            />
-            <TextInput
-              name="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={(value) =>
-                setForm((currenty) => {
-                  return { ...currenty, email: value.toLowerCase() }
-                })
-              }
-            />
+      </S.ContainerImage>
+      <S.BoxTitle>
+        <S.Title>Inscrição escola de Profeta</S.Title>
+        <S.Text>Valor R$ 50,00</S.Text>
+        <S.Text>Pix para pagamentos </S.Text>
+        <S.Text>CNPJ: 23.077.271/0001-40</S.Text>
+      </S.BoxTitle>
+      <S.ContainerForm onSubmit={handleSubmit} id="form_escola">
+        <S.BoxInput>
+          <TextInput
+            name="name"
+            placeholder="Nome Completo"
+            value={form.name}
+            onChange={(value) =>
+              setForm((currenty) => {
+                return {
+                  ...currenty,
+                  name: Masks.clearName(value).toUpperCase()
+                }
+              })
+            }
+          />
+        </S.BoxInput>
+        <S.BoxInput>
+          <TextInput
+            name="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={(value) =>
+              setForm((currenty) => {
+                return { ...currenty, email: value.toLowerCase() }
+              })
+            }
+          />
+        </S.BoxInput>
+        <S.BoxInput>
+          <TextInput
+            placeholder="WhatsApp"
+            name="phone"
+            value={form.phone}
+            onChange={(value) =>
+              setForm((currenty) => {
+                return { ...currenty, phone: Masks.phone(value) }
+              })
+            }
+          />
+        </S.BoxInput>
+        <S.BoxInput>
+          <Select
+            options={churchName}
+            title={'Selecione sua Igreja'}
+            value={form.church}
+            onChange={(event) =>
+              setForm((currenty) => {
+                return { ...currenty, church: event.target.value }
+              })
+            }
+          />
+        </S.BoxInput>
 
-            <TextInput
-              placeholder="WhatsApp"
-              name="phone"
-              value={form.phone}
-              onChange={(value) =>
-                setForm((currenty) => {
-                  return { ...currenty, phone: Masks.phone(value) }
-                })
-              }
-            />
-            <Select
-              options={churchName}
-              title={'Selecione sua Igreja'}
-              value={form.church}
-              onChange={(event) =>
-                setForm((currenty) => {
-                  return { ...currenty, church: event.target.value }
-                })
-              }
-            />
-
-            <div className="flex justify-center  ">
-              <button className={styles.button} type="submit">
-                Cadastrar
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+        <S.BoxButton>
+          <S.Button type="submit">Cadastrar</S.Button>
+        </S.BoxButton>
+      </S.ContainerForm>
+    </S.Container>
   )
 }
 
