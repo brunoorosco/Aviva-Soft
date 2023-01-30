@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import styles from './styles.module.css'
-import useSWR from 'swr'
-import MembrosTable from '../components/Tabela'
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const Batismo = (members) => {
   //const { data, error } = useSWR('/api/membros', fetcher)

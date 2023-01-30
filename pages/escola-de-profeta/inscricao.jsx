@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styles from '../styles.module.css'
 import axios from 'axios'
 import Toast from '../../components/Toast'
 import Image from 'next/image'
@@ -27,19 +26,6 @@ const Index = () => {
     phone: '',
     church: ''
   })
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-  const [phone, setPhone] = useState()
-  const [church, setChurch] = useState()
-
-  function handleChange(evt) {
-    const value = evt.target.value
-    const key = evt.target.name
-    setForm((old) => ({
-      ...old,
-      [key]: value
-    }))
-  }
 
   async function handleSubmit(evt) {
     evt.preventDefault()
